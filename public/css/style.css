@@ -1,6 +1,10 @@
 @charset "utf-8";
 
-div{
-  width: 600px;
-  height: 900px;
+body {
+  font-family: 'Nunito', sans-serif;
+}
+#map {
+  margin: 0 auto;
+  height: 700px;
+  width: 500px;
 }

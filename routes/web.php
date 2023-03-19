@@ -19,3 +19,12 @@ use App\Http\Controllers\HomeController;
 // });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::prefix('address')->group(function () {
+  Route::get('/', [App\Http\Controllers\AddressController::class, 'index'])->name('address.index');
+  Route::get('/log', [App\Http\Controllers\AddressController::class, 'index']);
+  Route::get('/add', [App\Http\Controllers\AddressController::class, 'add']);
+  Route::post('/add', [App\Http\Controllers\AddressController::class, 'add']);
+  // 以下新機能のRoute
+  Route::get('/{id}', [App\Http\Controllers\AddressController::class, 'show'])->name('address.show');
+});
