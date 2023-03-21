@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +14,22 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Auth::routes();
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// 一般ユーザーのみアクセスできるルーティング
+Route::middleware('auth')->group(function(){
+  // アイテム画面
+  Route::prefix('item')->group(function () {
+  });
+});
+
+
+
+
+
+Route::get('/', [MapController::class, 'index'])->name('map');
 
 Route::prefix('address')->group(function () {
   Route::get('/', [App\Http\Controllers\AddressController::class, 'index'])->name('address.index');
@@ -28,3 +39,4 @@ Route::prefix('address')->group(function () {
   // 以下新機能のRoute
   Route::get('/{id}', [App\Http\Controllers\AddressController::class, 'show'])->name('address.show');
 });
+

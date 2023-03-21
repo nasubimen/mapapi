@@ -8,7 +8,46 @@
 <body class="antialiased">
   @extends('layouts.header')
   @section('content')
+
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/images/lake1.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/images/lake2.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/images/lake1.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="main-map">
+    <div class="search">
+      <h2>検索</h2>
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">施設検索</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">カテゴリー</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button type="submit" class="btn btn-primary">検索</button>
+    </form>
+  </div>
     <div id="map"></div>
+  </div>
     <script>
 
     </script>
@@ -47,7 +86,7 @@
             });
 
             var infoWindow = new google.maps.InfoWindow({
-              content: '<h2><p>' + name + '</p></h2><div><p>' + addressname + '</p></div><a href="' + getAddressUrl({{ $item->id }}) + '">詳細を見る</a>'
+              content: '<h3><p>' + name + '</p></h3><div><p>' + addressname + '</p></div><a href="' + getAddressUrl({{ $item->id }}) + '">詳細を見る</a>'
             });
 
             function getAddressUrl(id) {
