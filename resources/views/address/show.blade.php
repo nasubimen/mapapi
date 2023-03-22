@@ -12,7 +12,6 @@
         @section('content')
         <div class="container">
           <div class="header">
-            <h2>テスト</h2>
           </div>
           <div class="main">
             <div class="title">

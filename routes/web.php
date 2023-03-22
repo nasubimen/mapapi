@@ -21,7 +21,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // 一般ユーザーのみアクセスできるルーティング
 Route::middleware('auth')->group(function(){
   // アイテム画面
-  Route::prefix('item')->group(function () {
+  Route::prefix('admin')->group(function () {
+    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+    Route::get('create', [App\Http\Controllers\AdminController::class, 'create'])->name('admin.create');
+    Route::post('store', [App\Http\Controllers\AdminController::class, 'store'])->name('admin.store');
+    Route::get('/{id}', [App\Http\Controllers\AdminController::class, 'show'])->name('admin.show');
+    Route::get('/{id}/edit', [App\Http\Controllers\AdminController::class, 'edit'])->name('admin.edit');
+    Route::put('/{id}', [App\Http\Controllers\AdminController::class, 'update'])->name('admin.update');
+    Route::delete('/{id}', [App\Http\Controllers\AdminController::class, 'destroy'])->name('admin.destroy');
   });
 });
 

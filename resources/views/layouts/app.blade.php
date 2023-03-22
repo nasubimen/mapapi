@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @stack('scripts')
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,9 +28,7 @@
                 <a class="navbar-brand" href="{{ route('home') }}">
                     びわこマップ管理者用
                 </a>
-                <a class="navbar-brand" href="{{ route('map') }}">
-                    操作画面
-                </a>
+              
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,7 +36,12 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <nav>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a class="nav-link active" href="{{ route('admin.index') }}">一覧画面</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="{{ route('map') }}">びわこマップへ</a></li>
+                            </ul>
+                        </nav>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -56,6 +60,7 @@
                                 </li>
                             @endif
                         @else
+                     
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
