@@ -17,7 +17,7 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('address');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('detail', 500)->nullable();
             $table->smallInteger('type')->nullable();
             $table->timestamps();
