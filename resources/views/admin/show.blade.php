@@ -23,8 +23,20 @@
   <li class="list-group-item">{{$item->name}}</li>
 </ul>
 <ul class="list-group m-2">
+  <li class="list-group-item active" aria-current="true">URL</li>
+  <li class="list-group-item">{{$item->url}}</li>
+</ul>
+<ul class="list-group m-2">
   <li class="list-group-item active" aria-current="true">種別</li>
-  <li class="list-group-item">{{$item->detail}}</li>
+  <li class="list-group-item">
+    @if ($item->type == 1)
+    レジャー施設
+    @elseif($item->type == 2)
+    娯楽・サービス施設
+    @elseif($item->type == 3)
+    絶景
+    @endif
+  </li>
 </ul>
 <ul class="list-group m-2">
   <li class="list-group-item active" aria-current="true">作成日</li>
