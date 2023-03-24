@@ -22,8 +22,12 @@
       <td>{{$item->address}}</td>
       <td>{{ Str::limit($item->detail, 15, '...') }}</td>
       <td><a href="{{route('admin.show',$item->id)}}" class="btn btn-success">詳細</a></td>
-      <td><a href="{{route('admin.edit',$item->id)}}" class="btn btn-success">編集</a></td>
-      <td><a href="{{route('admin.destroy',$item->id)}}" class="btn btn-success">削除</a></td>
+      <td><a href="{{route('admin.edit',$item->id)}}" class="btn btn-outline-success">編集</a></td>
+      <td><form action="{{route('admin.destroy',$item->id)}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="削除" class="btn btn-outline-danger" onclick="return confirm('本当に削除しますか??')">
+       </form></td>
     </tr>
     @endforeach
   </tbody>

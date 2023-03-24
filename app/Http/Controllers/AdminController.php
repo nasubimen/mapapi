@@ -87,7 +87,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 商品一覧取得
+        $item = Address::all()->find($id);
+        return view('admin.edit', compact('item'));
     }
 
     /**
@@ -99,7 +101,22 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+        ]);
+        // 商品一覧取得
+        $item = Address::all()->find($id);
+        // dd($item);
+
+        $item->name = $request->input('name');
+        $item->address = $request->input('address');
+        $item->url = $request->input('url');
+        $item->type = $request->input('type');
+        $item->detail = $request->input('detail');
+        $item->save();
+
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -110,6 +127,7 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Address::destroy($id);
+        return redirect()->route('admin.index');
     }
 }

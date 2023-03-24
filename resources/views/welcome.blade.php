@@ -46,7 +46,7 @@
           <option value="">選択してください</option>
           <option value="1" {{request()->search2 =='1'? "selected" : "";}}>レジャー施設</option>
           <option value="2" {{request()->search2 =='2'? "selected" : "";}}>娯楽・サービス施設</option>
-          <option value="3" {{request()->search2 =='3'? "selected" : "";}}>絶景</option>
+          <option value="3" {{request()->search2 =='3'? "selected" : "";}}>飲食店</option>
       </select>
       </div>
       <button type="submit" class="btn btn-primary">検索</button>
