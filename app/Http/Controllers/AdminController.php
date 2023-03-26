@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Address;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -42,13 +43,28 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-        // dd($request->name,$request->address,$request->type,$request->detail);
+
+
+        // ディレクトリ名
+        $dir = 'file_images';
+
+        $file_Name = [];
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $index => $file) {
+                $file_Name[$index] = $file->getClientOriginalName();
+                $file->storeAs('public/' . $dir, $file_Name[$index]);
+                // ここでファイルの処理を行う
+            }
+        } else {
+            $file_Name[] = null;
+        }
 
         $names = $request->input('name');
         $addresses = $request->input('address');
         $url = $request->input('url');
         $types = $request->input('type');
         $details = $request->input('detail');
+        
         // 送信されたデータの件数分ループ処理を行う
         foreach ($names as $index => $name) {
             if (!empty($name && $addresses[$index])) {
@@ -58,6 +74,8 @@ class AdminController extends Controller
                 $item->url = $url[$index];
                 $item->type = $types[$index];
                 $item->detail = $details[$index];
+                $item->image_name = $file_Name[$index];
+                $item->image_pass = 'storage/' . $dir . '/' . $file_Name[$index];
                 $item->save();
             }
         }
@@ -127,6 +145,8 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
+        $item = Address::find($id);
+        Storage::disk('public')->delete('file_images/' . $item->image_name);
         Address::destroy($id);
         return redirect()->route('admin.index');
     }

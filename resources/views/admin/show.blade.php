@@ -46,10 +46,16 @@
   <li class="list-group-item active" aria-current="true">更新日</li>
   <li class="list-group-item">{{$item->updated_at}}</li>
 </ul>
+
+<div class="image-size" style="width:200px">
+  <img class="image" src="{{ asset($item->image_pass) }}" style="width:100%">
+</div>
+
   <td><a class="btn btn-dark" href="{{route('admin.index')}}">戻る</a></td>
 </div>
       </main>
 </div>
   </main>
+
 
   @endsection

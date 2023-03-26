@@ -7,7 +7,7 @@
 
 </head> --}}
 
-<form class="container mt-3" action="{{route('admin.store')}}" method="post">
+<form class="container mt-3" action="{{route('admin.store')}}" method="post" enctype="multipart/form-data">
   @if ($errors->any())
   <ul>
       @foreach ($errors->all() as $error)
@@ -43,6 +43,11 @@
     <div class="form-group mt-2">
       <label for="detail">詳細</label>
       <textarea class="form-control" id="detail" name="detail[]" placeholder="詳細を入力してください" rows="3"></textarea>
+    </div>
+
+    <div class="mt-2">
+      <label for="formFile" class="form-label">写真を入れてください（任意）</label>
+      <input class="form-control" type="file" name="image[]" id="formFile">
     </div>
   </div>
 </div>
