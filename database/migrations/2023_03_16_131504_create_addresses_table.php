@@ -20,8 +20,8 @@ class CreateAddressesTable extends Migration
             $table->string('url')->nullable();
             $table->string('detail', 500)->nullable();
             $table->smallInteger('type')->nullable();
-            $table->string('image_name');
-            $table->string('image_pass');
+            $table->string('image_name')->nullable();
+            $table->string('image_pass')->nullable();
             $table->timestamps();
         });
     }
