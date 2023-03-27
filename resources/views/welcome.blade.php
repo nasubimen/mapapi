@@ -50,7 +50,7 @@
       </select>
       </div>
       <button type="submit" class="btn btn-primary">検索</button>
-      <a href="{{route('map')}}"><img class="w-5" src="/images/reload.png" alt=""></a>
+      <a href="{{route('map')}}"><img src="/images/reload.png" alt="" style="width: 20px;margin-left:20px;"></a>
     </form>
   </div>
 
