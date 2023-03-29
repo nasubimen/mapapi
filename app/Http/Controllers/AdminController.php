@@ -149,7 +149,7 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $item = Address::find($id);
-        Storage::disk('public')->delete('file_images/' . $item->image_name);
+        Cloudder::destroyImage($item->public_id);
         Address::destroy($id);
         return redirect()->route('admin.index');
     }
