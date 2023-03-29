@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Address;
 use Illuminate\Support\Facades\Storage;
+use JD\Cloudder\Facades\Cloudder;
 
 class AdminController extends Controller
 {
@@ -45,18 +46,20 @@ class AdminController extends Controller
         ]);
 
 
-        // ディレクトリ名
-        $dir = 'file_images';
 
-        $file_Name = [];
-        if ($request->hasFile('image')) {
+        $image_path = [];
+        $publicId = [];
+        $longUrl = [];
+        if ($image = $request->file('image')) {
             foreach ($request->file('image') as $index => $file) {
-                $file_Name[$index] = $file->getClientOriginalName();
-                $file->storeAs('public/' . $dir, $file_Name[$index]);
-                // ここでファイルの処理を行う
+                $image_path[$index] = $file->getRealPath();
+                Cloudder::upload($image_path[$index], null);
+                $publicId[$index] = Cloudder::getPublicId();
+                $longUrl[$index] = Cloudder::secureShow($publicId[$index], [
+                    'width'     => 200,
+                    'height'    => 200
+                ]);
             }
-        } else {
-            $file_Name[] = null;
         }
 
         $names = $request->input('name');
@@ -64,7 +67,7 @@ class AdminController extends Controller
         $url = $request->input('url');
         $types = $request->input('type');
         $details = $request->input('detail');
-        
+
         // 送信されたデータの件数分ループ処理を行う
         foreach ($names as $index => $name) {
             if (!empty($name && $addresses[$index])) {
@@ -74,8 +77,8 @@ class AdminController extends Controller
                 $item->url = $url[$index];
                 $item->type = $types[$index];
                 $item->detail = $details[$index];
-                $item->image_name = $file_Name[$index];
-                $item->image_pass = 'storage/' . $dir . '/' . $file_Name[$index];
+                $item->public_id = $publicId[$index];
+                $item->image_pass = $longUrl[$index];
                 $item->save();
             }
         }
