@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+ <head>
+  <link rel="stylesheet" href="/css/style.css">
+ </head>
 <main class="main">
   <div class="container-fluid">
       <main role="main">

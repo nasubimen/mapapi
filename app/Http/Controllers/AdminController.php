@@ -56,8 +56,8 @@ class AdminController extends Controller
                 Cloudder::upload($image_path[$index], null);
                 $publicId[$index] = Cloudder::getPublicId();
                 $longUrl[$index] = Cloudder::secureShow($publicId[$index], [
-                    'width'     => 200,
-                    'height'    => 200
+                    'width'     => 600,
+                    'height'    => 450,
                 ]);
             }
         }
