@@ -22,10 +22,10 @@
           </div>
           <div class="main" style="display:flex;flex-wrap:wrap;">
            
-            <div class="image-size" style="width:400px">
+            <div class="image-size" style="width:40%">
               <img class="image" src="{{ asset($item->image_pass) }}" style="width:100%">
             </div>
-            <div class="content" style="margin-left: 50px">
+            <div class="content" style="margin-left: 50px;width:40%;">
               <!-- 内容部分 -->
               <p>{{$item->detail}}</p>
             </div>
