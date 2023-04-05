@@ -121,7 +121,7 @@
         @endforeach
 
         }
-        </script>
+  </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUO3LyylA7NTT5Pzq9ROi2B1e94OAgF6E&callback=initMap" async defer></script>
     @endsection
 </body>
