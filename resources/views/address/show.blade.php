@@ -21,17 +21,21 @@
             <p>更新日:{{$item->updated_at}}</p>
           </div>
           <div class="main" style="display:flex;flex-wrap:wrap;">
-           
             <div class="image-size" style="width:40%">
               <img class="image" src="{{ asset($item->image_pass) }}" style="width:100%">
             </div>
             <div class="content" style="margin-left: 50px;width:40%;">
               <!-- 内容部分 -->
               <p>{{$item->detail}}</p>
+              <div class="related">
+
+                @if (!empty($item->url))
+                <a class="btn btn-outline-primary" href="{{$item->url}}">詳しくはこちら</a>
+                @endif
+
+              </div>
             </div>
-          </div>
-          <div class="related">
-            <!-- 関連情報部分 -->
+            
           </div>
 
 
