@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="/css/style.css">
-  <title>Document</title>
+  <title>{{$item->name}}</title>
 </head>
       <body>
 
@@ -30,7 +30,7 @@
               <div class="related">
 
                 @if (!empty($item->url))
-                <a class="btn btn-outline-primary" href="{{$item->url}}">詳しくはこちら</a>
+                <a class="btn btn-outline-primary" href="{{$item->url}}">公式HPへ</a>
                 @endif
 
               </div>

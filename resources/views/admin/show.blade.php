@@ -50,7 +50,11 @@
 </ul>
 
 <div class="image-size" style="width:200px">
+  @if(isset($item->image_pass))
   <img class="image" src="{{ asset($item->image_pass) }}" style="width:100%">
+  @else
+  <img src="/images/no_image.jpeg">
+  @endif
 </div>
 
   <td><a class="btn btn-dark" href="{{route('admin.index')}}">戻る</a></td>
