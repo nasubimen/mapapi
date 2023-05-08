@@ -15,13 +15,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">ホーム画面</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">このサイトについて</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('home')}}">管理者画面</a>
+            <a class="nav-link" href="{{route('home')}}">登録画面</a>
           </li>
         </ul>
       </div>

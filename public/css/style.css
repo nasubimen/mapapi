@@ -26,3 +26,94 @@ body {
   display: flex;
 }
 
+/* 見出し */
+
+.top-section{
+  display: flex;
+  justify-content: center;;
+}
+
+.new_info_head {
+  position: relative;
+  padding: 1.5rem;
+  text-align: center;
+  border: 2px solid #000;
+  background: #fff;
+}
+
+.new_info_head:before,
+.new_info_head:after {
+  position: absolute;
+  content: '';
+}
+
+.new_info_head:before {
+  top: -40px;
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 80px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.new_info_head:after {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.new_info_head i {
+  font-size: 40px;
+  line-height: 60px;
+  position: absolute;
+  z-index: 1;
+  top: -50px;
+  left: calc(50% - 40px);
+  width: 80px;
+  height: 60px;
+  text-align: center;
+}
+
+.new_info_head span {
+  position: relative;
+  z-index: 1;
+}
+
+.new-menu{
+  margin-top: 10px;
+}
+/* カルーセルに関する記述 */
+
+
+
+.cards{
+  margin-top: 60px;
+}
+
+.card_content:not(:first-child):not(:nth-child(4)){
+  margin-left:20px;
+}
+.card{
+   margin-bottom:20px;
+
+}
+
+.card-img-top{
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+
+
+.card_wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px!important;
+
+}
+

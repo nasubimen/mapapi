@@ -21,15 +21,15 @@
   <div class="form-content">
     <div class="form-group">
       <label class="label" for="name">名前</label>
-      <input type="text" class="form-control"  name="name[]" id="name" value="{{old('name')}}">
+      <input type="text" class="form-control"  name="name[]" id="name">
     </div>
     <div class="form-group mt-2">
       <label class="label" for="address">住所</label>
-      <input type="text" class="form-control"  name="address[]" id="address" value="{{old('address')}}">
+      <input type="text" class="form-control"  name="address[]" id="address">
     </div>
     <div class="form-group mt-2">
       <label class="label" for="url">URL</label>
-      <input type="text" class="form-control"  name="url[]" id="url" value="{{old('url')}}">
+      <input type="text" class="form-control"  name="url[]" id="url">
     </div>
     <div class="form-group mt-2">
       <label class="label" for="type">ジャンル</label></label>

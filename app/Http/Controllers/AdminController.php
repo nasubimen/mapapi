@@ -41,11 +41,13 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
         $request->validate([
-            'name' => 'required',
+            'name.*' => 'nullable|required',
+            'address.*' => 'nullable|required',
         ]);
-
-
 
         $image_path = [];
         $publicId = [];
@@ -77,8 +79,8 @@ class AdminController extends Controller
                 $item->url = $url[$index];
                 $item->type = $types[$index];
                 $item->detail = $details[$index];
-                $item->public_id = $publicId[$index];
-                $item->image_pass = $longUrl[$index];
+                $item->public_id = $publicId[$index] ?? null;
+                $item->image_pass = $longUrl[$index] ?? null;
                 $item->save();
             }
         }
